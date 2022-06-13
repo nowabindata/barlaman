@@ -15,13 +15,11 @@ pip install
 ```
 ## Running the scraper
 
-### Scrape the schedule :
+### I. Scrape the schedule :
 Each Monday, and in accordance with the  Constitution, the House of Representatives  convene in a plenary sitting devoted to oral questions. Before the sitting, the House of Representatives publishes the schedul of the sitting (pdf file in arabic). The first page of this document (the schedule) contains the following  data (see picture bellow) :
 
    + Time allocated to parliamentary groups
    + Ministries invited to the sitting
-   + Number of questions for each Ministry
-   + Questions asked during the sitting, who asked these questions and time allocated to each question
  
    ***Illustration***
   
@@ -52,6 +50,24 @@ We can store these dictionaries into DataFrames :
 import pandas as pd
 pd.DataFrame(schedual[1])
 ```
+
+### II. Scrape sitting's questions :
+The remaining pages of the schedule document contains :
+  + Number of questions for each Ministry
+  + Questions asked during the sitting, who asked these questions and time allocated to each question
+
+ ***illustration**
+ 
+ ![questTable](https://user-images.githubusercontent.com/49843367/173398931-82a871a8-4cfb-46c9-90fb-a6699d311428.png)
+ 
+ To get these question tables  use the function : `getQuesTable(path)` where `path` is the document path
+```python
+path= ".../ordre_du_jour_30052022-maj_0.pdf"
+question = getQuesTable(path)
+```
+ 
+ 
+
                     
 
 
