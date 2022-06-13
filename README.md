@@ -16,7 +16,7 @@ pip install
 ## Running the scraper
 
 ### I. Scrape the schedule :
-Each Monday, and in accordance with the  Constitution, the House of Representatives  convene in a plenary sitting devoted to oral questions. Before the sitting, the House of Representatives publishes the schedul of the sitting (pdf file in arabic). The first page of this document (the schedule) contains the following  data (see picture bellow) :
+Each Monday, and in accordance with the  Constitution, the House of Representatives  convene in a plenary sitting devoted to oral questions. Before the sitting, the House of Representatives publishes the schedul of the sitting (pdf file in arabic). The first page of this document (the schedule) contains the following  data (see picture below) :
 
    + Time allocated to parliamentary groups
    + Ministries invited to the sitting
@@ -131,17 +131,19 @@ Each deputy has a section at the parliament website where we can find the follow
   + Parliamentary tasks: 
   + Deputy Agenda: 
   + Deputy Questions: Total number of questions and for each question we can find the folliwing details :
+  
                            + Question date
                            + Question id
                            + Question title
                            + Question status : if the question received a response or not
                            + Date Answer
                            + Question text 
+
 To get those infotmation use the function :`getDeputy(url,include_quest=True,quest_link=False,quest_det=False)` where 
-  + url : link to the deputy link (to get url of deputies use getUrls())
-  + include_quest (default=True): True to retuen data about deputy questions
-  + quest_link (default=False) : True to include links of each question
-  + quest_det(default=False): True to include question details (question text, Date Answer ...)
+  + `url` : link to the deputy link (to get url of deputies use getUrls())
+  + `include_quest` (default=True): True to retuen data about deputy questions
+  + `quest_link` (default=False) : True to include links of each question
+  + `quest_det`(default=False): True to include question details (question text, Date Answer ...)
 
 ```python
 # to get a list of url of deputies use getUrls()
@@ -151,7 +153,7 @@ first=getDeputy(url)
 second=getDeputy(url,include_quest=True)
 tird=getDeputy(url,quest_link=True,quest_det=True)
 ```
-The output is a dictionary with the structure bellow :
+The output is a dictionary with the structure below :
 
           {"Nom":name,"description":desc, "task":task,"Agenda":agenda,"Questions":Quests}
 In first scenario `first` :
