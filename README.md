@@ -116,7 +116,7 @@ To get the raw transcripts  use the function : `getRawTrscp(path,start=1,end=-1)
 path=".../42-cdr23052022WF.pdf"
 transcript=getRawTrscp(path)
 ```
-The output is a dictionary of dictionaries in the form of : {'page_1':{"page":page,"rigth":right,"left":left},...,'page_x':{"page":page,"rigth":right,"left":left},..}
+The output is a dictionary of dictionaries in the form of : {.,'page_x':{"page":page,"rigth":right,"left":left},.}
 
 where : 
   - page_1: page number (e.g.page_x is page number x)
