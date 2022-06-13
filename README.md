@@ -124,7 +124,23 @@ where :
   - right : the text of the right side of page_x
   - left : the text of the left side of page_x
 
+### IV. Deputy data and parliamentary activities
+Each deputy has a section at the parliament website where we can find the following data :
+  
+  + General info about the deputy : Name, Party, Group, District ...
+  + Parliamentary tasks: 
+  + Deputy Agenda: 
+  + Deputy Questions: Total number of questions and for each question we can find the folliwing details :
+                           + Question date
+                           + Question id
+                           + Question title
+                           + Question status : if the question received a response  
+                           + Date Answer
+                           + Question text 
 
+                       
+
+    
                     
 
 
