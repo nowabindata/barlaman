@@ -134,9 +134,61 @@ Each deputy has a section at the parliament website where we can find the follow
                            + Question date
                            + Question id
                            + Question title
-                           + Question status : if the question received a response  
+                           + Question status : if the question received a response or not
                            + Date Answer
                            + Question text 
+To get those infotmation use the function :`getDeputy(url,include_quest=True,quest_link=False,quest_det=False)` where 
+  + url : link to the deputy link (to get url of deputies use getUrls())
+  + include_quest (default=True): True to retuen data about deputy questions
+  + quest_link (default=False) : True to include links of each question
+  + quest_det(default=False): True to include question details (question text, Date Answer ...)
+
+```python
+# to get a list of url of deputies use getUrls()
+url="https://www.chambredesrepresentants.ma/fr/m/adfouf"
+# We can have three scenarios
+first=getDeputy(url)
+second=getDeputy(url,include_quest=True)
+tird=getDeputy(url,quest_link=True,quest_det=True)
+```
+The output is a dictionary with the structure bellow :
+
+          {"Nom":name,"description":desc, "task":task,"Agenda":agenda,"Questions":Quests}
+In first scenario `first` :
+```python
+{'Nom': {'Député': ' Abdelmajid El Fassi Fihri'},
+ 'description': {'Parti': "Parti de l'istiqlal",
+  'Groupe': "Groupe Istiqlalien de l'unité et de l'égalitarisme",
+  'Circonscription': 'Circonscription locale',
+  'Circonscription_1': 'Fès-Chamalia',
+  'Legislature': '2021-2026',
+  'Membre des sections parlementaires': ' Commission Parlementaire Mixte Maroc-UE                                                                                            '},
+ 'task': {'Commission': "Commission de l'enseignement, de la culture et de la communication"},
+ 'Agenda': {'Agenda_1': {'heure': '15:00',
+   'evenemnt': 'Séance plénière mensuelle des questions de politique générale lundi 13 Juin 2022'},
+  'Agenda_2': {'heure': '10:00',
+   'evenemnt': 'Séance plénière mardi 7 Juin 2022 consacrée à la discussion du rapport de la Cour des Comptes 2019-2020'},
+  'Agenda_3': {'heure': '15:00',
+   'evenemnt': 'Séance plénière hebdomadaire des questions orales lundi 6 Juin 2022'},...}},
+ 'Questions': {'NbrQuest': ['12'],
+  'Dates': ['Date : 20/04/2022',
+   'Date : 04/03/2022',..],
+  'Questions': ['Question  :  ترميم المعلمة التاريخية دار القايد العربي بمدينة المنزل، إقليم صفرو',
+   'Question  :  المصير الدراسي لطلبة أوكرانيا'..],
+  'Status': ['R', 'NR', ..],
+  'Quest_link': [],
+  'Quest_txt': []}}
+```
+
+In the third scenario,'Quest_txt' is different than [] and it's like:
+```python
+'Quest_txt': [{'Nombre Question': ' 3475',
+    'Objet ': ' ترميم المعلمة التاريخية دار القايد العربي بمدينة المنزل، إقليم صفرو',
+    'Date réponse ': ' Mercredi 8 Juin 2022',
+    'Date de la question': 'Mercredi 20 Avril 2022',
+    'Question': 'صدر مرسوم رقم 2.21.416 ( 16 يونيو 2021) بالجريدة الرسمية عدد 7003 بإدراج المعلمة التاريخية "دار القايد العربي" بمدينة المنزل بإقليم صفرو في عداد الآثار، حيث أصبحت خاضعة للقانون رقم 22.80 المتعلق بالمحافظة على المباني التاريخية والمناظر والكتابات المنقوشة والتحف  الفنية والعاديات، وأكد صاحب الجلالة الملك محمد السادس في الرسالة السامية التي وجهها إلى المشاركين في الدورة 23 للجنة التراث العالمي في 27 مارس، 2013 ، "أن المحافظة على التراث المحلي والوطني وصيانته إنما هما محافظة على إرث إنساني يلتقي عنده باعتراف متبادل جميع أبناء البشرية".وقد طالبت جمعية التضامن للتنمية والشراكة بمدينة المنزل بإقليم صفرو، دون الحصول على رد، بتخصيص ميزانية لترميم هذه الدار التاريخية وتحويلها إلى مؤسسة ثقافية لخدمة ساكنة المنطقة وشبابها بخلق دينامية ثقافية لتكون منارة للأجيال القادمة.وعليه، نسائلكم السيد الوزير المحترم، ماهي الاجراءات التي ستتخذها وزارتكم قصد ترميم وتأهيل معلمة دار القايد العربي بمدينة المنزل بإقليم صفرو وتحويلها إلى مؤسسة ثقافية في إطار عدالة مجالية.'},...]
+```
+
 
                        
 
