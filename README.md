@@ -156,7 +156,7 @@ tird=getDeputy(url,quest_link=True,quest_det=True)
 The output is a dictionary with the structure below :
 
           {"Nom":name,"description":desc, "task":task,"Agenda":agenda,"Questions":Quests}
-In first scenario `first` :
+In first scenario we get :
 ```python
 {'Nom': {'Député': ' Abdelmajid El Fassi Fihri'},
  'description': {'Parti': "Parti de l'istiqlal",
@@ -182,7 +182,7 @@ In first scenario `first` :
   'Quest_txt': []}}
 ```
 
-In the third scenario,'Quest_txt' is different than [] and it's like:
+In the third scenario,'Quest_txt' is different than [] and we get:
 ```python
 'Quest_txt': [{'Nombre Question': ' 3475',
     'Objet ': ' ترميم المعلمة التاريخية دار القايد العربي بمدينة المنزل، إقليم صفرو',
