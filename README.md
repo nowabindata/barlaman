@@ -97,7 +97,18 @@ The output `question` is a dictionary of dictionaries whose keys are the the nam
 ### III. Setting's transcript
 After a setting, the Parliament published a pdf file of the setting transcript in arabin containing all debates that took place during the setting.
 The unique content, structure and language of records of parliamentary debates make them an important object of study in a wide range of disciplines in social sciences(political science) [Erjavec, T., Ogrodniczuk, M., Osenova, P. et al. The ParlaMint corpora of parliamentary proceedings] and  computer science (Natural language processing NLP) . 
- 
+
+***Illustration : Transcript***
+
+ ![transcript](https://user-images.githubusercontent.com/49843367/173420355-83d189be-e6b7-4a58-8654-830f8bf1630d.png)
+
+Unfortunatily we can't use the transcript document as it is provided by the parliament website because the document is written with a special font. In fact, if we try to scrape the original document we get a text full of mistakes (characters not in the right order).So we must change document's font before using it.  See the picture bellow : 
+  + text in  top is the original document.
+  + text in  bottom left is when we scrape the original document 
+  + text in  bottom left is when we scrape the original document after we  changed its font
+
+![font](https://user-images.githubusercontent.com/49843367/173423139-e745b517-b1fa-4e15-a8ad-124eb730ec37.png)
+
 
                     
 
