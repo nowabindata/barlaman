@@ -94,6 +94,9 @@ The output `question` is a dictionary of dictionaries whose keys are the the nam
 }
  ``` 
  
+### III. Setting's transcript
+After a setting, the Parliament published a pdf file of the setting transcript in arabin containing all debates that took place during the setting.
+The unique content, structure and language of records of parliamentary debates make them an important object of study in a wide range of disciplines in social sciences(political science) [Erjavec, T., Ogrodniczuk, M., Osenova, P. et al. The ParlaMint corpora of parliamentary proceedings] and  computer science (Natural language processing NLP) . 
  
 
                     
