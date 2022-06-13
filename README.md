@@ -1,6 +1,8 @@
 # Welcome to barlaman
 **A Python library to Scrap  raw data from the  Moroccan Parliament (House of Representatives) website.**
 
+ + PyPI link : https://pypi.org/project/barlaman/
+
 ## Requirements
 These  following packages should be installed:
 
@@ -11,7 +13,8 @@ These  following packages should be installed:
  + ***json*** & ***os*** to work with JSON files and folders.
 ## Install (NOT YET)
 ```python
-pip install 
+pip install barlaman
+from barlaman import *
 ```
 ## Running the scraper
 
