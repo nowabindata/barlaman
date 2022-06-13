@@ -105,9 +105,24 @@ The unique content, structure and language of records of parliamentary debates m
 Unfortunatily we can't use the transcript document as it is provided by the parliament website because the document is written with a special font. In fact, if we try to scrape the original document we get a text full of mistakes (characters not in the right order).So we must change document's font before using it.  See the picture bellow : 
   + text in  top is the original document.
   + text in  bottom left is when we scrape the original document 
-  + text in  bottom left is when we scrape the original document after we  changed its font
+  + text in  bottom right is when we scrape the original document after we  changed its font
 
 ![font](https://user-images.githubusercontent.com/49843367/173423139-e745b517-b1fa-4e15-a8ad-124eb730ec37.png)
+
+Until now there is no pythonic way to change the font of the document  (at least we are not aware of its existence,especialy that it's in arabic. All suggestions are most welcome). So we are doing the the old way : using  Microsoft Word.
+
+To get the raw transcripts  use the function : `getRawTrscp(path,start=1,end=-1)` where `path` is the document path, `start` is the number of the page from where you want to begin extracting text (The first page is 1 not 0!) and `end` is number of the page where you want to stop extracting text.
+```python
+path=".../42-cdr23052022WF.pdf"
+transcript=getRawTrscp(path)
+```
+The output is a dictionary of dictionaries in the form of : {'page_1':{"page":page,"rigth":right,"left":left},...,'page_x':{"page":page,"rigth":right,"left":left},..}
+
+where : 
+  - page_1: page number (e.g.page_x is page number x)
+  - page : the text of page_1
+  - right : the text of the right side of page_x
+  - left : the text of the left side of page_x
 
 
                     
