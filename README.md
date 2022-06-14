@@ -11,7 +11,8 @@ These  following packages should be installed:
  + ***arabic_reshaper*** & ***python-bidi*** to work with arabic text
  + ***re*** for regular expressions.
  + ***json*** & ***os*** to work with JSON files and folders.
-## Install (NOT YET)
+ + ***importlib*** to access the data about deputy url.
+## Install 
 ```python
 pip install barlaman
 from barlaman import *
@@ -219,6 +220,8 @@ In the third scenario,'Quest_txt' is different than [] and we get:
     'Question': 'صدر مرسوم رقم 2.21.416 ( 16 يونيو 2021) بالجريدة الرسمية عدد 7003 بإدراج المعلمة التاريخية "دار القايد العربي" بمدينة المنزل بإقليم صفرو في عداد الآثار، حيث أصبحت خاضعة للقانون رقم 22.80 المتعلق بالمحافظة على المباني التاريخية والمناظر والكتابات المنقوشة والتحف  الفنية والعاديات، وأكد صاحب الجلالة الملك محمد السادس في الرسالة السامية التي وجهها إلى المشاركين في الدورة 23 للجنة التراث العالمي في 27 مارس، 2013 ، "أن المحافظة على التراث المحلي والوطني وصيانته إنما هما محافظة على إرث إنساني يلتقي عنده باعتراف متبادل جميع أبناء البشرية".وقد طالبت جمعية التضامن للتنمية والشراكة بمدينة المنزل بإقليم صفرو، دون الحصول على رد، بتخصيص ميزانية لترميم هذه الدار التاريخية وتحويلها إلى مؤسسة ثقافية لخدمة ساكنة المنطقة وشبابها بخلق دينامية ثقافية لتكون منارة للأجيال القادمة.وعليه، نسائلكم السيد الوزير المحترم، ماهي الاجراءات التي ستتخذها وزارتكم قصد ترميم وتأهيل معلمة دار القايد العربي بمدينة المنزل بإقليم صفرو وتحويلها إلى مؤسسة ثقافية في إطار عدالة مجالية.'},...]
 ```
 
+## Question ? 
+Contact me on Twitter [@AmineAndam](https://twitter.com/AmineAndam)  or on Linkedin [ANDAM AMINE](https://www.linkedin.com/in/amineandam/).
 
 
 
