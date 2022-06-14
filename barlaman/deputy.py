@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import json
 import re
+import importlib.resources
 from .utils import getDepdecs,getDepTasks,getDepName,getDepAgenda,getQuestPage,getDepQuest,getQuestDt
 
 def getUrls():
@@ -23,6 +24,23 @@ def getUrls():
             dep_url=span[0].find('a',href=True)["href"]
             urls[dep_name]=''.join(["https://www.chambredesrepresentants.ma",dep_url])
     return urls
+
+
+def getUrlByName(name):
+    '''
+    Get Deputy url by name.
+    '''
+    path=importlib.resources.open_text("barlaman.data", "urls.json").name
+    urls=open(path)
+    depUrls=json.load(urls)
+    urls.close
+    name=name.strip()
+    if name in depUrls:
+        return depUrls[name]
+    else :
+        return None
+
+
 
 def getDeputy(url,include_quest=True,quest_link=False,quest_det=False):
     '''

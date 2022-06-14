@@ -181,8 +181,9 @@ def storeJSON(path,data):
     if path.endswith('.json')==False :
         print("Add .json to path")
         return 0
-    with open(path,'w') as file:
-        json.dump(data,file)
+    with open(path,'w',encoding='utf-8') as file:
+        json.dump(data,file,ensure_ascii=False)
+
 def storeTXT(path,data):
     '''
     > Store data into a .txt file located in path

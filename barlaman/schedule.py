@@ -8,18 +8,15 @@ from .utils import getPage,getRawFP,getRawF2Table,getLignsF2Table
 def getSchedule(path):
     '''
     > Get ready-to-use data of the first two tables of the schedule pdf file (ordre_de_jour_DDMMYYYY)
-      It outputs a tuple of 3  dictionary with the following keys :
-       >>   Dict 1 :
-                   "President": The president of the session
-                   "nbrQuestTotalSession" : Total nbr of questions
-            Dict 2:   
-                    "nomsMinister" : Name of ministers present in the session
-                    "numsQuest" : Total Number of question per minister
-                    "numQuestU": Number of urgent (أنى)  question
-            Dict 3:
-                    "nomsGroup" : Parliament groups
-                    "quesTime": Time allocated for each group
-                    "addTime" : Time for additional comments
+      It outputs a dictionary of 3  dictionary with the following keys :
+       ++ "President": The president of the session
+       ++ "nbrQuestTotalSession" : Total nbr of questions
+       ++ "Ministries" :  "nomsMinister" : Name of ministers present in the session
+                          "numsQuest" : Total Number of question per minister
+                          "numQuestU": Number of urgent (أنى)  question
+       ++ "Groups":  "nomsGroup" : Parliament groups
+                     "quesTime": Time allocated for each group
+                     "addTime" : Time for additional comments
     > params :
         - path : path to pdf
     '''
@@ -52,12 +49,13 @@ def getSchedule(path):
     while len(nomsMinister)!=len(numsQuest):
         nomsMinister[-2]=nomsMinister[-2] + ' ' +nomsMinister[-1]
         nomsMinister=nomsMinister[:-1]
-    return ({"President":presid,
-            "nbrQuestTotalSession" :nbrQuestTotalSession},
-            {"nomsMinister" : nomsMinister,
+    return {"President":presid,
+            "nbrQuestTotalSession" :nbrQuestTotalSession,
+            
+            "Ministries":{"nomsMinister" : nomsMinister,
             "numsQuest" : numsQuest,
             "numQuestU":numQuestU},
-            {"nomsGroup" : nomsGroup,
+            "Groups":{"nomsGroup" : nomsGroup,
             "quesTime": quesTime,
             "addTime" : addTime
-            })
+            }}
