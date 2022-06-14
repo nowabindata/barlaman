@@ -8,7 +8,7 @@ from .utils import getPage,getRawFP,getRawF2Table,getLignsF2Table
 def getSchedule(path):
     '''
     > Get ready-to-use data of the first two tables of the schedule pdf file (ordre_de_jour_DDMMYYYY)
-      It outputs a dictionary of 3  dictionary with the following keys :
+      It outputs a dictionary  with the following keys :
        ++ "President": The president of the session
        ++ "nbrQuestTotalSession" : Total nbr of questions
        ++ "Ministries" :  "nomsMinister" : Name of ministers present in the session
