@@ -121,6 +121,29 @@ where :
   - page : the text of page_1
   - right : the text of the right side of page_x
   - left : the text of the left side of page_x
+getRawTrscp
+
+To store the output of `getRawTrscp`  in a folder use :`texToDir(path_pdf,parent_dir,start=1,end=-1,both_format=True,file_type='json')` where:
+    
+  - `path_pdf` : pdf path
+  - `parent_dir` : directory where to create the folder where to store data
+  - `start (default=1)` : Number of the page from where you want to begin extracting text.The first page is 1 not 0!
+  - `end (default=-1)` : Number of the page to where you want to stop extracting text
+  - `both_format (default=True)` :True if you want to store file in json AND txt format.If it's False, you may sepecify format with `file_type`
+  - `file_type (default ='json')` : json or txt. It `both_format= True`, you don't need to use this parameter
+
+This function creates a new folder having the same name of the pdf file (purple box, see image below) in the parent directory (red box). Depending on arguments, we can find three type of files in the new created folder : a JSON file containing the complete  text of the transcipt (all of it),  text files each one containes text of a specific page and a text file with the complete text.
+
+***Example***
+```python
+path_pdf='C:/Users/pc/Desktop/ParlWatch/42-cdr23052022WF.pdf'
+parent_dir='C:/Users/pc/Desktop/ParlWatch/'
+texToDir(path_pdf,parent_dir,start=1,end=4,both_format=True)
+```
+
+
+![directory](https://user-images.githubusercontent.com/49843367/173596919-fad89543-5df4-49bb-9cff-26f759f7552c.png)
+
 
 ### IV. Deputy data and parliamentary activities
 Each deputy has a section at the parliament website where we can find the following data :
@@ -142,6 +165,15 @@ To get those infotmation use the function :`getDeputy(url,include_quest=True,que
   + `include_quest` (default=True): True to retuen data about deputy questions
   + `quest_link` (default=False) : True to include links of each question
   + `quest_det`(default=False): True to include question details (question text, Date Answer ...)
+
+To create a directory to store the output of `getDeputy` use : `texToDir(path_pdf,parent_dir,start=1,end=-1,both_format=True,file_type='json')` where :
+
+   - `path_pdf` : pdf path
+   - `parent_dir` : directory where to create a directory to store data
+   - `start (default=1)`: Number of the page from where you want to begin extracting text.
+   - `end (default=-1)` : Number of the page to where you want to stop extracting text
+   - `both_format (default=True)` :True if you want to store file in json AND txt format.If it's False, you may sepecify format with `file_type`
+    - `file_type (default ='json')` : json or txt. It both_format= True, you don't need to use this parameter
 
 ```python
 # to get a list of url of deputies use getUrls()
@@ -188,6 +220,8 @@ In the third scenario,'Quest_txt' is different than [] and we get:
     'Date de la question': 'Mercredi 20 Avril 2022',
     'Question': 'صدر مرسوم رقم 2.21.416 ( 16 يونيو 2021) بالجريدة الرسمية عدد 7003 بإدراج المعلمة التاريخية "دار القايد العربي" بمدينة المنزل بإقليم صفرو في عداد الآثار، حيث أصبحت خاضعة للقانون رقم 22.80 المتعلق بالمحافظة على المباني التاريخية والمناظر والكتابات المنقوشة والتحف  الفنية والعاديات، وأكد صاحب الجلالة الملك محمد السادس في الرسالة السامية التي وجهها إلى المشاركين في الدورة 23 للجنة التراث العالمي في 27 مارس، 2013 ، "أن المحافظة على التراث المحلي والوطني وصيانته إنما هما محافظة على إرث إنساني يلتقي عنده باعتراف متبادل جميع أبناء البشرية".وقد طالبت جمعية التضامن للتنمية والشراكة بمدينة المنزل بإقليم صفرو، دون الحصول على رد، بتخصيص ميزانية لترميم هذه الدار التاريخية وتحويلها إلى مؤسسة ثقافية لخدمة ساكنة المنطقة وشبابها بخلق دينامية ثقافية لتكون منارة للأجيال القادمة.وعليه، نسائلكم السيد الوزير المحترم، ماهي الاجراءات التي ستتخذها وزارتكم قصد ترميم وتأهيل معلمة دار القايد العربي بمدينة المنزل بإقليم صفرو وتحويلها إلى مؤسسة ثقافية في إطار عدالة مجالية.'},...]
 ```
+
+
 
 
                        
