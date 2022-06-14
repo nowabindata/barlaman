@@ -160,23 +160,21 @@ Each deputy has a section at the parliament website where we can find the follow
                            + Date Answer
                            + Question text 
 
-To get those infotmation use the function :`getDeputy(url,include_quest=True,quest_link=False,quest_det=False)` where 
-  + `url` : link to the deputy link (to get url of deputies use getUrls())
+To get this data use the function :`getDeputy(url,include_quest=True,quest_link=False,quest_det=False)` where 
+  + `url` : link to the deputy link 
   + `include_quest` (default=True): True to retuen data about deputy questions
   + `quest_link` (default=False) : True to include links of each question
   + `quest_det`(default=False): True to include question details (question text, Date Answer ...)
 
-To create a directory to store the output of `getDeputy` use : `texToDir(path_pdf,parent_dir,start=1,end=-1,both_format=True,file_type='json')` where :
-
-   - `path_pdf` : pdf path
-   - `parent_dir` : directory where to create a directory to store data
-   - `start (default=1)`: Number of the page from where you want to begin extracting text.
-   - `end (default=-1)` : Number of the page to where you want to stop extracting text
-   - `both_format (default=True)` :True if you want to store file in json AND txt format.If it's False, you may sepecify format with `file_type`
-    - `file_type (default ='json')` : json or txt. It both_format= True, you don't need to use this parameter
+There is two ways to get the `url`of a deputy : `getUrls()` and `getUrlByName(name)`. The first one outputs a dictionary of the complete list of deputies and there urls. The last one outputs the url of the deputy `name`. 
 
 ```python
-# to get a list of url of deputies use getUrls()
+url_bouanou=getUrlByName("Abdellah Bouanou") ## Get the link of Abdellah Bouanou
+url_bouanou  # 'https://www.chambredesrepresentants.ma/fr/m/abouanou'
+```
+
+
+```python
 url="https://www.chambredesrepresentants.ma/fr/m/adfouf"
 # We can have three scenarios
 first=getDeputy(url)
