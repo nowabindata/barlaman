@@ -33,26 +33,21 @@ To get the schedule use the function : `getSchedule(path)` where `path` is the d
 path= ".../ordre_du_jour_30052022-maj_0.pdf"
 schedual = getSchedule(path)
 ```
-The output `schedual` is  a tuple of 3  dictionary with the following keys :
-     
-+ Dict 1 :
-    + "President": The president of the session
-    + "nbrQuestTotalSession" : Total nbr of questions
-+ Dict 2 :
-    +  "nomsMinister" : Name of ministers present in the session
-    +  "numsQuest" : Total Number of question per minister
-    +  "numQuestU": Number of urgent (أنى)  question
-+ Dict 3 :
-    + "nomsGroup" : Parliament groups
-    + "quesTime": Time allocated for each group
-    + "addTime" : Time for additional comments
+The output `schedual` is  a dictionary  with the following keys :
+   + "President": The president of the session
+   + "nbrQuestTotalSession" : Total nbr of questions
+   + "Ministries" : 
+         
+                    - "nomsMinister" : Name of ministers present in the session
+                    - "numsQuest" : Total Number of question per minister
+                    - "numQuestU": Number of urgent (أنى)  question
+   + "Groups":
+      
+              + "nomsGroup" : Parliament groups
+              + "quesTime": Time allocated for each group
+              + "addTime" : Time for additional comments
 
-We can store these dictionaries into DataFrames :
-```python
-# Turn Dict 2 into a DataFrame
-import pandas as pd
-pd.DataFrame(schedual[1])
-```
+
 
 ### II. Scrape sitting's questions :
 The remaining pages of the schedule document contains :
