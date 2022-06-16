@@ -41,9 +41,11 @@ def getQuesTable(path):
         parlGroup=[]
         timeQuest=[]
         for i in range(len(ligns)):
+            
             if re.search(r'\d\d:\d\d:\d\d',ligns[i])==None:
                 txtQuest[-1]=txtQuest[-1]+' '+ligns[i]
                 continue;
+            ligns[i]=ligns[i].replace('ﻓﺮﻳﻖ'," ﻓﺮﻳﻖ").replace("ﺍﻟﻔﺮﻳﻖ"," ﺍﻟﻔﺮﻳﻖ").replace("ﺍﻟﻤﺠﻤﻮﻋﺔ"," ﺍﻟﻤﺠﻤﻮﻋﺔ")
             vals=ligns[i].split('  ')
             vals=[val.strip() for val in vals if val.strip()!='']
             if vals[0][0]=='*':
@@ -55,7 +57,10 @@ def getQuesTable(path):
             typeQuest.append(vals[2])
             txtQuest.append(vals[3])
             parlGroup.append(vals[4])
-            timeQuest.append(vals[5])
+            try :
+                timeQuest.append(vals[5])
+            except :
+                timeQuest.append(' ')
             if ' ' in vals[1]:
                 codeQuest.append(vals[1][-1]+vals[1][:-1])
             else :

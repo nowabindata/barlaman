@@ -40,7 +40,21 @@ def getRawF2Table(path):
          - path : the path to the pdf
     '''
     text=getRawFP(path)
-    return text[1].split("\n \n")
+    txt=text[1].split("\n \n")
+    if len(txt)>1:
+        return text[1].split("\n \n")
+    else :
+        i=0
+        while i<len(text):
+            if i==1:
+                i+=1
+                continue;
+            else :
+                txt=text[i].split("\n \n")
+                if len(txt)>1:
+                    return txt
+                else :
+                    i+=1
 
 
 def getLignsF2Table(text):
@@ -52,7 +66,15 @@ def getLignsF2Table(text):
     > params :
           - text : the output of getRawF2Table()
     '''
-    wordsToDelet=['ﻣﺠﻠﺲ ﺍﻟﻨﻮﺍﺏ', 'ﻗﺴﻢ ﺍﺃﻟﺴﺌﻠﺔ', 'ﺟﻠﺴﺔ ﺭﻗﻢ']
+    presid=[]
+    nbrQuestTotalSession=[]
+    dursGroup=[]
+    numsQuest=[]
+    nomsGroup=[]
+    nomsMinister=[]
+    if 'www.chambredesrepresentants.ma' in text:
+        return [presid,nbrQuestTotalSession,nomsGroup,dursGroup,nomsMinister,numsQuest]
+    wordsToDelet=['ﻣﺠﻠﺲ ﺍﻟﻨﻮﺍﺏ', 'ﻗﺴﻢ ﺍﺃﻟﺴﺌﻠﺔ', 'ﺟﻠﺴﺔ ﺭﻗﻢ','ﻣﺼﻠﺤﺔ ﺍﺃﻟﺴﺌﻠﺔ','ﺃﻣﺎﻧﺔ ﺍﻟﺠﻠﺴﺔ','ﺭﺋﺎﺳﺔ ﺍﻟﺠﻠﺴﺔ','ﺍﻟﻜﺘﺎﺑﺔ ﺍﻟﻌﺎﻣﺔ','ﻣﺪﻳﺮﻳﺔ ﺍﻟﻤﺮﺍﻗﺒﺔ ﻭﺍﻟﺘﻘﻴﻴﻢ','ﺍﻟﺴﻨﺔ ﺍﻟﺘﺸﺮﻳﻌﻴﺔ']
     for word in wordsToDelet:
         text=text.replace(word,'')
     regx=[r'\d\d/\d\d/\d\d\d\d',r'\d\d\d\d-\d\d\d\d']
@@ -76,7 +98,10 @@ def getLignsF2Table(text):
         if  gotPresid==False and check[0] in w[0] :
             k=w[lig].split('   ')
             presid=[k[0].replace('  ',"")]
-            nbrQuestTotalSession=re.findall(r'\d+',k[1])
+            try :
+                nbrQuestTotalSession=re.findall(r'\d+',k[1])
+            except :
+                nbrQuestTotalSession=re.findall(r'\d+',w[lig]) 
             gotPresid=True
             continue;
         a=w[lig].split("  ")
@@ -91,8 +116,11 @@ def getLignsF2Table(text):
         #split digits and words
         numQuest=re.findall(r'\d+',' '.join(a))
         if numQuest!=[]:
-            for num in numQuest:
-                a.remove(num)
+            if len(a)<2:
+                a=[' ']
+            else :
+                for num in numQuest:
+                    a.remove(num)
         if '' in a :
             a.remove('')
         nomGroup=[]
@@ -202,10 +230,10 @@ def createDir(parent_dir,new_dir):
     if os.path.exists(path)==False:
         os.mkdir(path)
     return path
+
 def storeAllJSON(file_name,path_dir,text):
     '''
     > Organize json file in a directory. It creates one json files named with the same name as the pdf file
-    > 
     '''
     file_json='.'.join([file_name,'json'])
     path_json='/'.join([path_dir,file_json])

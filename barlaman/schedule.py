@@ -29,7 +29,11 @@ def getSchedule(path):
     addTime=[]
     nomsMinister=[]
     F2Table=getRawF2Table(path)
-    tab=getLignsF2Table(F2Table[1])
+    try :
+        tab=getLignsF2Table(F2Table[1])
+    except:
+        tab=getLignsF2Table(F2Table)
+        
     for i in range(len(F2Table)) :
         if i!=1:
             prv=getLignsF2Table(F2Table[i])
@@ -40,10 +44,14 @@ def getSchedule(path):
         nbrQuestTotalSession=tab[1]
     nomsGroup=[name[0] for name in tab[2] if name!=[] ]
     quesTime=[name[0] for name in tab[3] if name!=[] ]
-    addTime=[name[1] for name in tab[3] if name!=[] ]
+    try :
+        addTime=[name[1] for name in tab[3] if name!=[] ]
+    except :
+        addTime=[]
     numsQuest=[int(num[0]) for num in tab[-1] if len(num)>1]
     numQuestU=[int(num[1]) for num in tab[-1] if len(num)>1]
-    if sum(numsQuest)!=int(nbrQuestTotalSession[0]):
+    
+    if nbrQuestTotalSession!= [] and sum(numsQuest)!=int(nbrQuestTotalSession[0]):
         numsQuest=numsQuest[:-1]
     nomsMinister=[name[0] for name in tab[-2] if name!=[]]
     while len(nomsMinister)!=len(numsQuest):
