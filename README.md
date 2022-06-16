@@ -110,7 +110,7 @@ Unfortunatily we can't use the transcript document as it is provided by the parl
 
 Until now there is no pythonic way to change the font of the document  (at least we are not aware of its existence,especialy that it's in arabic. All suggestions are most welcome). So we are doing the the old way : using  Microsoft Word.
 
-To get the raw transcripts  use the function : `getRawTrscp(path,start=1,end=-1)` where `path` is the document path, `start` is the number of the page from where you want to begin extracting text (The first page is 1 not 0!) and `end` is number of the page where you want to stop extracting text.
+To get the raw transcripts  use the function : `getRawTrscp(path,start=1,end=-1,two_side=True)` where `path` is the document path, `start` is the number of the page from where you want to begin extracting text (The first page is 1 not 0!) , `end` is number of the page where you want to stop extracting text and `two_side`if the pdf has two sides one in the left and the other in the right.
 ```python
 path=".../42-cdr23052022WF.pdf"
 transcript=getRawTrscp(path)
@@ -124,7 +124,7 @@ where :
   - left : the text of the left side of page_x
 getRawTrscp
 
-To store the output of `getRawTrscp`  in a folder use :`texToDir(path_pdf,parent_dir,start=1,end=-1,both_format=True,file_type='json')` where:
+To store the output of `getRawTrscp`  in a folder use :`texToDir(path_pdf,parent_dir,start=1,end=-1,two_side=True,both_format=True,file_type='json')` where:
     
   - `path_pdf` : pdf path
   - `parent_dir` : directory where to create the folder where to store data
