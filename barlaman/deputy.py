@@ -8,6 +8,7 @@ from .utils import getDepdecs,getDepTasks,getDepName,getDepAgenda,getQuestPage,g
 def getUrls():
     '''
     Get deputy urls for scrapping
+    
     '''
     pages=['']+['='.join(["?page",str(i)]) for i in range(1,33)]
     url_prfx="https://www.chambredesrepresentants.ma/fr/%D8%AF%D9%84%D9%8A%D9%84-%D8%A3%D8%B9%D8%B6%D8%A7%D8%A1-%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D9%86%D9%88%D8%A7%D8%A8/2021-2026"
@@ -28,7 +29,6 @@ def getUrls():
 def getUrlByName(name):
     '''
     Get Deputy url by name.
-    
     '''
     path=importlib.resources.open_text("barlaman.data", "urls.json").name
     urls=open(path)
