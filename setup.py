@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="barlaman",
-    version="0.0.1",
+    version="0.1.3",
     author="ANDAM Amine",
     author_email="andamamine83@gmail.com",
     description='Scrape data of Moroccan House of Representatives.',
