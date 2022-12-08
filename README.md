@@ -11,7 +11,7 @@ These  following packages should be installed:
  + ***arabic_reshaper*** & ***python-bidi*** to work with arabic text
  + ***re*** for regular expressions.
  + ***json*** & ***os*** to work with JSON files and folders.
- + ***importlib*** to access the data about deputy url.
+ + ***importlib*** to access urls of each deputy.
 ## Install 
 ```python
 pip install barlaman
